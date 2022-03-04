@@ -1,0 +1,66 @@
+# Logging
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+  charset:
+    console: UTF-8
+  file:
+    name: api.log
+
+######## SERVER #########
+# On production
+#spring.data.mongodb.uri: mongodb://<user>:<passwd>@<host>:<port>/<dbname>
+server:
+  port: 8081
+#  error:
+#    include-message: always
+#    include-binding-errors: always
+#    whitelabel:
+#      enabled: false
+
+######## SPRING #########
+spring:
+
+  # Spring Data Mongodb
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/demo # use local or embedded mongodb at localhost:27017
+
+  # Spring Datasource
+  datasource:
+    password: laenzo
+    url: jdbc:postgresql://localhost:5432/atidb # use local or embedded postgres
+    username: atimera
+
+  # Spring JPA
+  jpa:
+    hibernate:
+      ddl-auto: update #update #create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    show-sql: false
+
+  # Spring Email
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: hello
+    # Spring Email Properties
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+## JWT
+jwt:
+  secret: '8yZCeD7B1S1TwUvJjFWvDSv2naCtQ0Vah6B5NBad3bWed9913stUAlrClEv4csRQoXgAYyO39g05HV8UUkq0X237BcJ81zyQ'
