@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.atimera.api.constant.SecurityConstantes.*;
+import static com.atimera.api.constant.SecurityConstant.*;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC256;
 
 @Configuration

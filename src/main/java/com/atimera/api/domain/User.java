@@ -3,6 +3,7 @@ package com.atimera.api.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,6 +23,7 @@ public class User implements Serializable {
     @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false, unique = true)
+    @Email(message = "Adresse email invalide")
     private String email;
     private String password;
     private String profileImageUrl;

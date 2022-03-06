@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static com.atimera.api.constant.SecurityConstantes.OPTIONS_HTTP_METHOD;
-import static com.atimera.api.constant.SecurityConstantes.TOKEN_PREFIX;
+import static com.atimera.api.constant.SecurityConstant.OPTIONS_HTTP_METHOD;
+import static com.atimera.api.constant.SecurityConstant.TOKEN_PREFIX;
 
 @Component
 @RequiredArgsConstructor

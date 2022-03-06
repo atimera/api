@@ -21,6 +21,12 @@ server:
 ######## SPRING #########
 spring:
 
+  # Upload Files
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
   # Spring Data Mongodb
   data:
     mongodb:
@@ -43,24 +49,32 @@ spring:
     show-sql: false
 
   # Spring Email
+  #  mail:
+  #    host: localhost
+  #    port: 1025
+  #    username: hello
+  #    password: hello
+  #    # Spring Email Properties
+  #    properties:
+  #      mail:
+  #        smtp:
+  #          ssl:
+  #            trust: "*"
+  #          auth: true
+  #          starttls:
+  #            enable: true
+  #          connectiontimeout: 5000
+  #          timeout: 3000
+  #          writetimeout: 5000
+
   mail:
-    host: localhost
-    port: 1025
-    username: hello
-    password: hello
-    # Spring Email Properties
     properties:
-      mail:
-        smtp:
-          ssl:
-            trust: "*"
-          auth: true
-          starttls:
-            enable: true
-          connectiontimeout: 5000
-          timeout: 3000
-          writetimeout: 5000
+      # other properties you need
+      "mail.smtp.ssl.protocols": "TLSv1.2"
+  r2dbc:
+    properties:
+      ssl: false
 
 ## JWT
 jwt:
-  secret: '8yZCeD7B1S1TwUvJjFWvDSv2naCtQ0Vah6B5NBad3bWed9913stUAlrClEv4csRQoXgAYyO39g05HV8UUkq0X237BcJ81zyQ'
+  secret: 8yZCeD7B1S1TwUvJjFWvDSv2naCtQ0Vah6B5NBad3bWed9913stUAlrClEv4csRQoXgAYyO39g05HV8UUkq0X237BcJ81zyQ

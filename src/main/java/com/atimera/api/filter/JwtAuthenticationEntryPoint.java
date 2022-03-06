@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.atimera.api.constant.SecurityConstantes.FORBIDDEN_MESSAGE;
+import static com.atimera.api.constant.SecurityConstant.FORBIDDEN_MESSAGE;
 import static com.atimera.api.utils.HttpResponseUtil.writeHttpResponse;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 
