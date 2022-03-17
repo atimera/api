@@ -60,7 +60,7 @@ public class UserResource extends ExceptionHandling {
     @PostMapping("/register")
     public ResponseEntity<HttpCustomResponse> register(@RequestBody @Valid User user)
             throws EmailNotFoundException, UsernameExistsException, EmailExistsException, UserNotFoundException {
-        User newUser = userService.register(user.getFirstName(), user.getLastName(), user.getUsername(), user.getEmail());
+        User newUser = userService.register(user.getFirstName(), user.getLastName(), user.getUsername(), user.getEmail(), user.getPassword());
         return new ResponseEntity<>(
                 HttpCustomResponse.builder()
                         .httpStatusCode(CREATED.value())

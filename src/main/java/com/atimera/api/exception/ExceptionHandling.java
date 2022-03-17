@@ -158,7 +158,7 @@ public class ExceptionHandling implements ErrorController {
                 .httpStatus(httpStatus)
                 .httpStatusCode(httpStatus.value())
                 .reason(httpStatus.getReasonPhrase().toUpperCase())
-                .message(message.toUpperCase())
+                .message(message)
                 .build();
         if (exception != null) {
             String devMessage = "ExceptionClass: " + exception.getClass().getSimpleName() +

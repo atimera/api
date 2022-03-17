@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface UserService {
 
-    User register(String firstName, String lastName, String username, String email)
+    User register(String firstName, String lastName, String username, String email, String password)
             throws EmailNotFoundException, UsernameExistsException, EmailExistsException;
 
     List<User> getUsers();

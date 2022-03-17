@@ -1,0 +1,31 @@
+# Logging
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+  charset:
+    console: UTF-8
+  file:
+    name: api.log
+
+######## SPRING #########
+spring:
+  # Spring Datasource for Tests
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1 # use local or embedded postgres
+    password: laenzo
+    username: atimera
+    driver-class-name: org.h2.Driver
+
+  # Spring JPA
+  jpa:
+    hibernate:
+      ddl-auto: update #update #create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: false
+    show-sql: true
+
+## JWT
+jwt:
+  secret: 8yZCeD7B1S1TwUvJjFWvDSv2naCtQ0Vah6B5NBad3bWed9913stUAlrClEv4csRQoXgAYyO39g05HV8UUkq0X237BcJ81zyQ

@@ -68,18 +68,18 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User register(String firstName, String lastName, String username, String email)
+    public User register(String firstName, String lastName, String username, String email, String password)
             throws EmailNotFoundException, UsernameExistsException, EmailExistsException {
         validateNewUsernameAndEmail(EMPTY, username, email);
         User user = new User();
         user.setUserId(generateUserId());
-        String password = generatePassword();
+        String vPassword = password == null ? generatePassword() : password;
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setUsername(username);
         user.setEmail(email);
         user.setJoinDate(new Date());
-        user.setPassword(encodePassword(password));
+        user.setPassword(encodePassword(vPassword));
         user.setActive(true);
         user.setNotLocked(true);
         user.setRole(ROLE_USER.name());
@@ -140,6 +140,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                            String newEmail, String role, boolean isNotLocked, boolean isActive, MultipartFile newProfileImage)
             throws EmailNotFoundException, UsernameExistsException, EmailExistsException, IOException {
         User currentUser = validateNewUsernameAndEmail(currentUsername, newUsername, newEmail);
+        if (currentUser == null) {
+            throw new EmailNotFoundException(String.format(NO_USER_FOUND_BY_USERNAME, currentUsername));
+        }
         currentUser.setFirstName(newFirstName);
         currentUser.setLastName(newLastName);
         currentUser.setUsername(newUsername);
